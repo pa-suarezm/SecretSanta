@@ -1,5 +1,0 @@
-package logic.exceptions;
-
-public class EmptyTableException extends Exception{
-
-}

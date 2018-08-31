@@ -61,8 +61,8 @@ public class PanelParticipantes extends JPanel{
 		miembros = new JScrollPane(listMiembros);
 		listMiembros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listFamilias.setSelectedIndex(0);
+		
 		add(BorderLayout.CENTER, miembros);
-
 		listFamilias.addMouseListener(new MouseAdapter() {
 			@SuppressWarnings("rawtypes")
 			public void mouseClicked(MouseEvent evt) {
@@ -75,6 +75,7 @@ public class PanelParticipantes extends JPanel{
 					Object[] mem = p.toArray();
 					listMiembros.setListData(mem);
 				}
+				actualizarMiembros();
 			}
 		});
 	}
@@ -91,17 +92,31 @@ public class PanelParticipantes extends JPanel{
 		List<logic.Familia> f = main.getFamilias();
 		Object[] fam = f.toArray();
 		listFamilias.setListData(fam);
-
-		listFamilias.setSelectedIndex(0);
-
+		
+		actualizarMiembros();
+	}
+	
+	public void actualizarMiembros(){
 		logic.Familia actual = ((Familia) listFamilias.getSelectedValue());
 
 		if(actual != null){
+			
+			System.out.println("Sí hay familia seleccionada: " + actual.getName());
+			
 			List<logic.Persona> p = main.getMiembros(actual.getName());
+			
+			System.out.println("");
+			
 			Object[] mem = p.toArray();
 			listMiembros.setListData(mem);
+			listMiembros.setSelectedIndex(0);
 		}
 		else
 			listMiembros.setListData(new Object[0]);
+		
+		miembros.removeAll();
+		miembros.add(listMiembros);
+		miembros.revalidate();
+		miembros.repaint();
 	}
 }

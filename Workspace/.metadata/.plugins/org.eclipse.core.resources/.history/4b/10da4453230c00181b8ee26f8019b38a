@@ -1,7 +1,0 @@
-package controller;
-
-import logic.SecretSantaManager;
-
-public class SecretSantaController {
-
-}

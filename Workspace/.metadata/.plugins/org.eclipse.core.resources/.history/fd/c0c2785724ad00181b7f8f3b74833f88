@@ -1,0 +1,23 @@
+package view;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.basic.BasicListUI;
+
+public class MyListUI extends BasicListUI{
+
+	
+	protected ListSelectionListener createListSelectionListener() {
+        return new MySelectionListener();
+    }
+	
+	@Override
+    public class MySelectionListener extends ListSelectionHandler {
+        public void valueChanged(ListSelectionEvent e) {
+            // do some extra work when the selection changes
+            super.valueChange(e);
+        }
+    }
+	
+}
