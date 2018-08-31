@@ -100,7 +100,12 @@ public class PanelParticipantes extends JPanel{
 		logic.Familia actual = ((Familia) listFamilias.getSelectedValue());
 
 		if(actual != null){
+			
+			System.out.println("Sí hay familia seleccionada: " + actual.getName());
+			
 			List<logic.Persona> p = main.getMiembros(actual.getName());
+			
+			System.out.println("");
 			
 			Object[] mem = p.toArray();
 			listMiembros.setListData(mem);

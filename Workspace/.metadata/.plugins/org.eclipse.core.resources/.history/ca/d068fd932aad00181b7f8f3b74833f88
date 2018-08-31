@@ -360,7 +360,7 @@ public class SecretSantaManager {
 
 	public List<Persona> getMembers(String family){
 		for(int i=0; i<familias.size(); i++){
-			if(family.toLowerCase().equals(familias.get(i).getName().toLowerCase())){
+			if(family.toLowerCase().equals(familias.get(i).getName())){
 				return (familias.get(i).getMembers());
 			}
 		}
