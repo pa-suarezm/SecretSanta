@@ -1,0 +1,28 @@
+package logic;
+
+public class Participant {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private String fullName;
+	
+	private String family;
+	
+	private String email;
+	
+	private Participant giftTo;
+	
+	//-------------------------------------------
+	//Constructor
+	//-------------------------------------------
+	
+	public Participant(String pName, String pFamily, String pEmail){
+		fullName = pName;
+		family = pFamily;
+		email = pEmail;
+		giftTo = null;
+	}
+	
+}

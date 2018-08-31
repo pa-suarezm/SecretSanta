@@ -1,0 +1,24 @@
+package controller;
+
+import logic.SecretSantaManager;
+
+public class Controller {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private static SecretSantaManager manager = new SecretSantaManager();
+	
+	//------------------------------------------
+	//Metodos
+	//------------------------------------------
+	
+	public static void sort() throws Exception{
+		manager.sort();
+	}
+	
+	public static void sendEmails() throws Exception{
+		manager.sendEmails();		
+	}
+}

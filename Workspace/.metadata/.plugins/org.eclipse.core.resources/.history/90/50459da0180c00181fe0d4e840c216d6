@@ -1,0 +1,9 @@
+package logic.exceptions;
+
+public class KeyNotFoundException extends Exception{
+
+	public KeyNotFoundException(String key){
+		super("The key " + key + " couldn't be found");
+	}
+	
+}

@@ -1,0 +1,10 @@
+package logic.exceptions;
+
+public class ListNotValidException extends Exception{
+
+	
+	public ListNotValidException(String key){
+		super("The list isn't vlaidated. Please validate the list and try again.");
+	}
+	
+}

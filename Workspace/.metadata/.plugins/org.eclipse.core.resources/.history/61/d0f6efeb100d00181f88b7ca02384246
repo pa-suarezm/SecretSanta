@@ -1,0 +1,79 @@
+package view;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class PanelCambios extends JPanel implements ActionListener{
+
+	//------------------------------------------------
+	//Constantes
+	//------------------------------------------------
+	
+	private static final long serialVersionUID = 1408453319188800339L;
+	
+	public static final String AGREGAR = "AGREGAR";
+	
+	public static final String ELIMINAR = "ELIMINAR";
+	
+	//------------------------------------------------
+	//Atributos
+	//------------------------------------------------
+	
+	private SecretSantaUI main;
+	
+	private JButton btnAgregar;
+	
+	private JButton btnEliminar;
+	
+	//------------------------------------------------
+	//Constructor
+	//------------------------------------------------
+	
+	public PanelCambios(SecretSantaUI inter){
+		main = inter;
+		
+		TitledBorder border = BorderFactory.createTitledBorder("Administrar participantes");
+		border.setTitleColor(Color.BLUE);
+		setBorder(border);
+		
+		setLayout(new GridLayout(2,1));
+		
+		for(int i=0; i<4; i++)
+			add(new JLabel(""));
+		
+		btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(this);
+		btnAgregar.setActionCommand(AGREGAR);
+		add(btnAgregar);
+		
+		for(int i=0; i<5; i++)
+			add(new JLabel(""));
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(this);
+		btnEliminar.setActionCommand(ELIMINAR);
+		add(btnEliminar);
+		
+		for(int i=0; i<4; i++)
+			add(new JLabel(""));
+	}
+	
+	//------------------------------------------------
+	//Metodos
+	//------------------------------------------------
+	
+	@Override
+	public void actionPerformed(ActionEvent e){
+		String cmd = e.getActionCommand();
+		if(cmd.equals(AGREGAR)){
+			
+		}
+		else if(cmd.equals(ELIMINAR)){
+			
+		}
+	}
+
+}

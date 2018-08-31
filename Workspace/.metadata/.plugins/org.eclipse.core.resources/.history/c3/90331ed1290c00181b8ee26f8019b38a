@@ -1,0 +1,15 @@
+package logic;
+
+import java.util.*;
+
+public class Familia {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private List<Persona> miembros;
+	
+	private String nombre;
+	
+}

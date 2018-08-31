@@ -1,0 +1,103 @@
+package view;
+
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import logic.Familia;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.List;
+
+public class PanelParticipantes extends JPanel implements ListSelectionListener{
+
+	//------------------------------------------------------------
+	//Constantes
+	//------------------------------------------------------------
+
+	private static final long serialVersionUID = -1797198812652092492L;
+
+	//------------------------------------------------------------
+	//Atributos
+	//------------------------------------------------------------
+
+	private SecretSantaUI main;
+
+	private JList<Object> listFamilias;
+
+	private JScrollPane familias;
+
+	private JList<Object> listMiembros;
+
+	private JScrollPane miembros;
+
+	//------------------------------------------------------------
+	//Constructor
+	//------------------------------------------------------------
+
+	public PanelParticipantes(SecretSantaUI inter){
+		main = inter;
+
+		setLayout(new BorderLayout());
+
+		TitledBorder border = BorderFactory.createTitledBorder("Participantes");
+		border.setTitleColor(Color.BLUE);
+		setBorder(border);
+
+		List<logic.Familia> f = main.getFamilias();
+		Object[] fam = f.toArray();
+
+		listFamilias = new JList<Object>(fam);
+
+		familias = new JScrollPane(listFamilias);
+		listFamilias.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listFamilias.setSelectedIndex(0);
+		add(BorderLayout.WEST, familias);
+
+		listMiembros = new JList<Object>();
+
+		miembros = new JScrollPane(listMiembros);
+		listMiembros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listFamilias.setSelectedIndex(0);
+		add(BorderLayout.CENTER, miembros);
+	}
+
+	//------------------------------------------------------------
+	//Metodos
+	//------------------------------------------------------------
+
+	public Object getSelectedObject(){
+		return listMiembros.getSelectedValue();
+	}
+
+	public void actualizar(){
+		List<logic.Familia> f = main.getFamilias();
+		Object[] fam = f.toArray();
+		listFamilias.setListData(fam);
+
+		logic.Familia actual = ((Familia) listFamilias.getSelectedValue());
+
+		System.out.println("Familia actual = " + actual); //TODO Debug
+		
+		if(actual != null){
+			List<logic.Persona> p = main.getMiembros(actual.getName());
+			System.out.println(p);
+			Object[] mem = p.toArray();
+			listMiembros.setListData(mem);
+		}
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		logic.Familia actual = ((Familia) listFamilias.getSelectedValue());
+		
+		System.out.println("valueChanged() - " + actual); //TODO Debug
+		
+		List<logic.Persona> p = main.getMiembros(actual.getName());
+		Object[] mem = p.toArray();
+		listMiembros.setListData(mem);
+	}
+
+}

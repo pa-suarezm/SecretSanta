@@ -1,0 +1,17 @@
+package logic;
+
+public class Participant {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private String fullName;
+	
+	private String family;
+	
+	private String email;
+	
+	private String giftTo;
+	
+}

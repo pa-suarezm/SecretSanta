@@ -1,0 +1,18 @@
+package controller;
+
+import logic.SecretSantaManager;
+
+public class Controller {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private static SecretSantaManager manager = new SecretSantaManager();
+	
+	//------------------------------------------
+	//Metodos
+	//------------------------------------------
+	
+	
+}

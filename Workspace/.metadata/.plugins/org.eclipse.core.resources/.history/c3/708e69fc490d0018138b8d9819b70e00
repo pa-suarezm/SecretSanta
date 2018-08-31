@@ -1,0 +1,11 @@
+package logic.exceptions;
+
+public class RepeatedFamilyException extends Exception{
+	
+	private static final long serialVersionUID = 430700405323034060L;
+
+	public RepeatedFamilyException(String name){
+		super("La familia " + name + " ya existe")
+	}
+	
+}

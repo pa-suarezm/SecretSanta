@@ -1,0 +1,41 @@
+package controller;
+
+import java.io.IOException;
+import java.util.*;
+
+import logic.Familia;
+import logic.SecretSantaManager;
+import logic.exceptions.*;
+
+public class Controller {
+
+	//-------------------------------------------
+	//Atributos
+	//-------------------------------------------
+	
+	private static SecretSantaManager manager = new SecretSantaManager();
+	
+	//------------------------------------------
+	//Metodos
+	//------------------------------------------
+	
+	public static void sort() throws KeyNotFoundException, EmptyTableException{
+		manager.sort();
+	}
+	
+	public static void sendEmails() throws KeyNotFoundException, ListNotValidException, Exception{
+		manager.sendEmails();		
+	}
+	
+	public static void save(String pRuta) throws IOException{
+		manager.save(pRuta);
+	}
+	
+	public static List<Familia> getFamilies(){
+		return manager.getFamilies();
+	}
+	
+	public static void delete(logic.Persona eliminar){
+		manager.delete(eliminar);
+	}
+}

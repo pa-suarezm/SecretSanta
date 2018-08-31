@@ -1,0 +1,22 @@
+package logic;
+
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.mail.internet.MimeMessage;
+
+public class SendEmail {
+
+	//-----------------------------------------------------------
+	//Constantes
+	//-----------------------------------------------------------
+	
+	public static final String SENDER_EMAIL = "bedoyasecretsanta2017@gmail.com";
+	
+	public static final String SENDER_HOST = "smtp.gmail.com";
+	
+	public static final String SENDER_PASSWORD = "Holakase33";
+	
+	public static final String RECEIVER_EMAIL = "pabloasuarezm@gmail.com";
+	
+}

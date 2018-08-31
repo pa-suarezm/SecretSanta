@@ -1,0 +1,9 @@
+package logic.exceptions;
+
+public class RepeatedMemberException extends Exception{
+
+	public RepeatedMemberException(String pMiembro, String pFamilia){
+		super("La persona " + pMiembro + "ya está registrada en la familia " + pFamilia);
+	}
+	
+}

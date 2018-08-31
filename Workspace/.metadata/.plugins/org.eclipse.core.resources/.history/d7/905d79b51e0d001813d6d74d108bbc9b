@@ -1,0 +1,106 @@
+package view;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class PanelOpciones extends JPanel implements ActionListener{
+
+	//------------------------------------------------
+	//Constantes
+	//------------------------------------------------
+	
+	private static final long serialVersionUID = 1408453319188800339L;
+	
+	public static final String AGREGAR = "AGREGAR";
+	
+	public static final String ELIMINAR = "ELIMINAR";
+	
+	public static final String SAVE = "GUARDAR";
+	
+	public static final String SORT = "SORT";
+	
+	public static final String SEND = "SEND";
+	
+	//------------------------------------------------
+	//Atributos
+	//------------------------------------------------
+	
+	private SecretSantaUI main;
+	
+	private JButton btnAgregar;
+	
+	private JButton btnEliminar;
+	
+	private JButton btnGuardar;
+	
+	private JButton btnValidar;
+	
+	private JButton btnEnviar;
+	
+	//------------------------------------------------
+	//Constructor
+	//------------------------------------------------
+	
+	public PanelOpciones(SecretSantaUI inter){
+		main = inter;
+		
+		TitledBorder border = BorderFactory.createTitledBorder("opciones");
+		border.setTitleColor(Color.BLUE);
+		setBorder(border);
+		
+		setLayout(new GridLayout(8,1));
+		
+		btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(this);
+		btnAgregar.setActionCommand(AGREGAR);
+		add(btnAgregar);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(this);
+		btnEliminar.setActionCommand(ELIMINAR);
+		add(btnEliminar);
+		
+		btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(this);
+		btnGuardar.setActionCommand(SAVE);
+		add(btnGuardar);
+		
+		btnValidar = new JButton("Validar");
+		btnValidar.addActionListener(this);
+		btnValidar.setActionCommand(SORT);
+		add(btnValidar);
+		
+		btnEnviar = new JButton("Enviar Correos");
+		btnEnviar.addActionListener(this);
+		btnEnviar.setActionCommand(SEND);
+		add(btnEnviar);		
+	}
+	
+	//------------------------------------------------
+	//Metodos
+	//------------------------------------------------
+	
+	@Override
+	public void actionPerformed(ActionEvent e){
+		String cmd = e.getActionCommand();
+		if(cmd.equals(AGREGAR)){
+			//TODO
+		}
+		else if(cmd.equals(ELIMINAR)){
+			//TODO
+		}
+		else if(cmd.equals(SAVE)){
+			main.save();
+		}
+		else if(cmd.equals(SEND)){
+			main.send();
+		}
+		else if(cmd.equals(SORT)){
+			main.validate();
+		}
+	}
+
+}
