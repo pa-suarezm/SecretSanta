@@ -61,7 +61,7 @@ public class SendEmail {
 			props.put("mail.smtp.ssl.trust", SENDER_HOST); //POR SI EXPLOTA
 			props.put("mail.smtp.starttls.required", "true");
 
-			java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider()); //MANDA ERROR SI ESTA RESTRINGIDO
+			//java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider()); //MANDA ERROR SI ESTA RESTRINGIDO
 			Session mailSession = Session.getDefaultInstance(props, null);
 			mailSession.setDebug(sessionDebug); //Debug
 			Message msg = new MimeMessage(mailSession);
